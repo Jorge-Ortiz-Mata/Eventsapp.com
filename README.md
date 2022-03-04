@@ -18,3 +18,5 @@ A user can create events and attend to other users' events.
 * +52 (444) 576 3034.
 
 ## Images.
+
+![](app/assets/images/events-app-1.PNG)
