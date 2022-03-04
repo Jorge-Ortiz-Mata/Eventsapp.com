@@ -1,8 +1,31 @@
-<%= link_to "Events", root_path %>
-<% if current_user %>
-<%= link_to "@#{current_user.profile.first_name} #{current_user.profile.last_name}", profile_path(current_user.profile) if current_user.profile.present? %>
-<%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete if current_user.profile.present? %>
-<% else %>
-<%= link_to "Sign in", new_user_session_path %>
-<%= link_to "Sign up", new_user_registration_path %>
-<% end %>
+<div>
+	<div class="p-5 bg-white rounded-lg shadow dark:bg-gray-800">
+		<div class="sm:flex sm:items-center sm:justify-between">
+            <div class="flex">
+				<img src="https://flowbite.com/docs/images/logo.svg" class="mr-1 h-8" alt="Flowbite Logo" />
+                <%= link_to "Eventsapp.com", root_path, class:"text-xl font-semibold whitespace-nowrap dark:text-white" %>
+            </div>
+			</a>
+			<ul class="flex flex-wrap items-center mb-6 sm:mb-0">
+				<li class="mr-2">
+			        <strong>Date: </strong><%= @today_date %> 
+				</li>
+                <% if current_user %>
+				<li>
+                    <%= link_to "@#{current_user.profile.first_name} #{current_user.profile.last_name}", profile_path(current_user.profile), class:"p-4 m-1 inline-flex bg-green-800 text-white rounded-full h-6 px-3 justify-center items-center" if current_user.profile.present? %>
+				</li>
+				<li>
+                    <%= link_to "Sign out", destroy_user_session_path, "data-turbo-method": :delete, class:"p-4 m-1 inline-flex bg-red-800 text-white rounded-full h-6 px-3 justify-center items-center" if current_user.profile.present? %>
+				</li>
+                <% else %>
+				<li>
+                    <%= link_to "Sign in", new_user_session_path, class:"p-4 m-1 inline-flex bg-blue-800 text-white rounded-full h-6 px-3 justify-center items-center" %>
+				</li>
+				<li>
+                    <%= link_to "Sign up", new_user_registration_path, class:"p-4 m-1 inline-flex bg-green-800 text-white rounded-full h-6 px-3 justify-center items-center" %>
+				</li>
+                <% end %>
+			</ul>
+		</div>
+	</div>
+</div>

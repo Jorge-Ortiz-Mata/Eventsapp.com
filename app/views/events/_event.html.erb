@@ -1,30 +1,37 @@
-<br><div id="<%= dom_id event %>">
-  <p>
-    <strong>Title:</strong>
-    <%= event.title %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= event.description %>
-  </p>
-  <p>
-    <strong>Event date:</strong>
-    <%= event.event_date %>
-  </p>
-  <p>
-    <strong>Organized by:</strong>
-    <%= event.user.email %>
-  </p>
-  <p>
-    <% if @today_date < event.event_date %>
-      <%= link_to "Attend to this event", "#" %>
-    <% else %>
-      Event ended.
-    <% end %>
-  </p>
-  <br>
-  <div>
-    <%= link_to "Edit this event", edit_event_path(event) if current_user.id == event.user_id %><br>
-    <%= button_to "Destroy this event", event, method: :delete if current_user.id == event.user_id %>
+<br>
+<div id="<%= dom_id event %>">
+  <div class="bg-gray-100 p-8 w-auto"> 
+      <header class="flex font-light text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 rotate-90 -ml-2"  viewBox="0 0 24 24" stroke="#b91c1c">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+          </svg>
+          <p>Event<p>
+      </header>
+      <h4 class="font-bold text-3xl mt-2">
+        <%= event.title %>
+      </h4>
+      <p class="mt-5"> 
+          By: <%= event.user.email %>
+      </p>
+      <p class="mt-5"> 
+          Event date: <%= event.event_date %>
+      </p>
+      <h5 class="font-bold text-xl mt-8"> Description </h5>
+      <p class="font-light">
+        <%= event.description %>
+      </p>
+      <p>
+        <% if @today_date < event.event_date %>
+          <%= link_to "Attend to this event", "#", class:"bg-green-700 text-white font-semibold py-2 px-5 text-sm mt-6 inline-flex items-center group" %>
+        <% else %>
+          Event ended.
+        <% end %>
+      </p>
+      <div>
+        <%= link_to "Edit this event", edit_event_path(event), class:"bg-blue-700 text-white font-semibold py-2 px-5 text-sm mt-6 inline-flex items-center group" if current_user.id == event.user_id %><br>
+        <%= button_to "Destroy this event", event, method: :delete, class:"bg-red-700 text-white font-semibold py-2 px-5 text-sm mt-6 inline-flex items-center group" if current_user.id == event.user_id %>
+      </div>
   </div>
-</div><br>
+</div>
+<br>
+

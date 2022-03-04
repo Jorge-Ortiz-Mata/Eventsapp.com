@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :require_user, :user_has_no_profile, :user_has_profile
+    helper_method :require_user, :user_has_no_profile, :user_has_profile, :todays_date
+    before_action :todays_date
+
     
     def require_user
         if !current_user
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
         if current_user.profile.present?
             redirect_to root_path
         end
+    end
+
+    def todays_date
+      @today_date = Date.today
     end
 
 end
