@@ -6,7 +6,6 @@ class PagesController < ApplicationController
   def home
     @event = Event.new
     @events = Event.all
-    @today_date = Date.today
   end
 
 

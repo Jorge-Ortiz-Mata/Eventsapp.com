@@ -21,10 +21,10 @@
         <%= event.description %>
       </p>
       <p>
-        <% if @today_date < event.event_date %>
+        <% if Date.today <= event.event_date %>
           <%= link_to "Attend to this event", "#", class:"bg-green-700 text-white font-semibold py-2 px-5 text-sm mt-6 inline-flex items-center group" %>
         <% else %>
-          Event ended.
+          <br><span class="mt-10 mb-10 text-red-900 font-bold">Event ended.</span>
         <% end %>
       </p>
       <div>
