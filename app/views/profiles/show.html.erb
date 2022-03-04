@@ -1,0 +1,7 @@
+
+<%= render @profile %>
+
+<div>
+  <%= link_to "Edit profile", edit_profile_path(@profile) %> | 
+  <%= link_to "Edit account", edit_registration_path(current_user) %>
+</div>
