@@ -20,3 +20,4 @@ A user can create events and attend to other users' events.
 ## Images.
 
 ![](app/assets/images/events-app-1.PNG)
+![](app/assets/images/events-app-2.PNG)
